@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ВУ|STORE — Дракнет стиль</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+:root {
+  --main-bg: #0b0c10;
+  --secondary-bg: #1f2833;
+  --main-green: #66fcf1;
+  --emerald: #45a29e;
+  --block-bg: #151a1f;
+  --border: #202d2e;
+}
+body {
+  margin: 0;
+  background: linear-gradient(135deg, var(--main-bg) 60%, var(--secondary-bg) 100%);
+  color: var(--main-green);
+  font-family: 'Share Tech Mono', monospace;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  background: var(--block-bg);
+  border-bottom: 1.4px solid var(--main-green);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 11px;
+  padding: 13px 2vw;
+}
+nav a {
+  font-size: 16px;
+  padding: 8px 17px;
+  border-radius: 10px;
+  border: 1.2px solid var(--main-green);
+  background: var(--main-bg);
+  color: #66fcf1;
+  font-weight: 900;
+  transition: all 0.21s;
+  text-decoration: none;
+}
+nav a:hover, nav a.active {
+  background: #171e21;
+  color: #1fffd1;
+  border-color: #45a29e;
+}
+.container {
+  flex: 1;
+  margin: 36px auto 65px auto;
+  padding: 32px 3vw 36px 3vw;
+  background: #151a1f;
+  box-shadow: 0 0 38px #09f9b03a;
+  border-radius: 23px;
+  border: 2px solid var(--border);
+  max-width: 850px;
+  width: 98vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.block {
+  border: 2px solid var(--main-green);
+  border-radius: 17px;
+  margin: 20px 0 36px 0;
+  padding: 26px 14px 17px 14px;
+  background: none;
+  color: #66fcf1;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.05em;
+  align-items: center;
+}
+.main-title {
+  font-size: 27px;
+  font-weight: 1000;
+  color: #66fcf1;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.main-desc {
+  font-size: 16px;
+  color: #c1fce9;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  font-weight: 700;
+  text-align: center;
+}
+.price-accent {
+  color: #0bffbe;
+  font-weight: 900;
+  font-size: 21px;
+}
+.main-link {
+  display: inline-block;
+  padding: 10px 19px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e2e23;
+  background: linear-gradient(96deg,#30fff2 18%,#b9ffe7 94%);
+  border-radius: 10px;
+  box-shadow: 0 0 14px #13ffea6b;
+  text-decoration: none;
+  margin: 16px auto 0 auto;
+  border: 1.2px solid #4bf7d0;
+  transition: background .17s, color .09s;
+}
+.main-link:hover { background: #44ffcd; color: #122f24; }
+.centered-img-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0 13px 0;
+  width: 100%;
+  max-width: 96vw;
+}
+.centered-img-block img {
+  display: block;
+  margin: 0 auto 7px auto;
+  border-radius: 12px;
+  border: 2px solid #66fcf1;
+  background: #1c232e;
+  box-shadow: 0 0 12px #13eee7a6;
+  width: 90%;
+  max-width: 390px;
+  min-width: 120px;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+}
+.img-caption {
+  color: #41d6b6;
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+  text-align: center;
+  max-width: 420px;
+}
+.copy-notice {
+  color: #67ffe9;
+  font-size: 15px;
+  min-height: 21px;
+  text-align: center;
+  font-weight: 900;
+  margin: 15px auto 0 auto;
+  text-shadow: 0 0 5px #66fcf199;
+}
+.donate-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 15px 0 13px 0;
+  align-items: center;
+  width: 100%;
+  max-width: 360px;
+}
+.donate-card {
+  background: var(--block-bg);
+  border-radius: 11px;
+  border: 1.8px solid #45a29e;
+  padding: 13px 3vw 13px 3vw;
+  margin-bottom: 5px;
+  box-shadow: 0 0 17px #17ffe930;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.donate-title {
+  color: #45a29e;
+  font-size: 15.2px;
+  letter-spacing: .07em;
+  font-weight: 900;
+  margin-bottom: 8px;
+  text-shadow: 0 0 10px #1fccc1a9;
+  text-align: center;
+}
+.donate-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #141619;
+  border-radius: 7px;
+  border: 1.4px solid #09ffd266;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto 6px auto;
+  padding: 10px 9px;
+  cursor: pointer;
+  transition: background 0.18s;
+  color: #ccfff4;
+  justify-content: flex-start;
+  overflow-x: auto;
+  max-width: 100%;
+  /* Запретить перенос — для длинных адресов скролл по горизонтали! */
+  white-space: nowrap;
+}
+.donate-row:active, .donate-row.copied { background: #105151; }
+.donate-label {
+  font-weight: 700;
+  font-size: 15px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.donate-address {
+  font-family: inherit;
+  font-size: 14px;
+  user-select: all;
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: visible;
+  word-break: normal;
+}
+.timer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 0 auto 22px auto;
+  background: #191d23;
+  border-radius: 18px;
+  border: 2px solid #66fcf1;
+  box-shadow: 0 0 38px #16ffef55;
+  padding: 24px 3vw;
+  max-width: 99vw;
+}
+.timer-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 53px;
+  margin-bottom: 8px;
+}
+.timer-label {
+  color: var(--emerald);
+  font-weight: 900;
+  font-size: 17px;
+}
+.timer-digits {
+  font-size: 47px;
+  color: #fff;
+  text-shadow: 0 0 18px #09ffd292;
+  font-family: inherit;
+  font-weight: 900;
+  background: none;
+  padding: 0 7px;
+  min-width: 29px;
+}
+.timer-break {
+  flex-basis: 100%;
+  height: 0;
+}
+@media (max-width:700px){
+  .container{padding:4vw 1vw 7vw 1vw;max-width:99vw;}
+  .block{border-radius:9px;padding:8px 2vw 6px 2vw;}
+  .main-title{font-size:16px;}
+  .main-desc, .img-caption{font-size:12px;}
+  .centered-img-block img{max-width:99vw;min-width:60px;max-height:65vw;}
+  .donate-card,
+  .donate-cards{max-width:99vw;}
+  .donate-row{
+    width:99vw;min-width:70px;font-size:10vw;max-width:99vw;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  .donate-address{
+    white-space:nowrap;
+    min-width:0;
+    max-width:92vw;
+    display:inline-block;
+    overflow:visible;
+  }
+  .donate-label{flex-shrink:0;}
+}
+.footer-vu {
+  color: #d9fff8;
+  background: #121418;
+  border-top: 1.2px solid #12e7e3a1;
+  margin: 0;
+  padding: 13px 1vw 7px 1vw;
+  text-align: center;
+  font-size: 13px;
+  width: 100vw;
+  left: 0; right: 0; bottom: 0;
+  position: fixed;
+  z-index: 10;
+  letter-spacing: .064em;
+  user-select: none;
+  box-shadow: 0 0 11px #92fff1a9;
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" id="link-home" class="active">Главная</a>
+  <a href="#" id="link-about">Время работы сервиса</a>
+  <a href="#" id="link-support">Поддержать проект</a>
+  <a href="#" id="link-reserve">Резерв</a>
+</nav>
+<div class="container" id="content"></div>
+<div class="copy-notice" id="copy-notice"></div>
+<div class="footer-vu">Все права защищены и принадлежат BУ|STORE</div>
+<script>
+const startDate = new Date('2016-01-01T00:00:00');
+let timerInterval;
+const contentElem = document.getElementById('content');
+const noticeElem = document.getElementById('copy-notice');
+function setActiveMenu(id) {
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function createDigits(val, len) {
+  const arr = val.toString().padStart(len,"0").split("");
+  return '<span class="timer-digits">' + arr.join('</span><span class="timer-digits">') + '</span>';
+}
+function centeredImgBlock(src, alt, caption) {
+  return `<div class="centered-img-block"><img src="${src}" alt="${alt}"><div class="img-caption">${caption||""}</div></div>`;
+}
+function showHome() {
+  setActiveMenu('link-home');
+  document.body.classList.remove('no-horizontal-scroll'); noticeElem.textContent = '';
+  contentElem.innerHTML = `
+    <div class="block">
+      <div class="main-title">ВУ|STORE — топовые услуги ВУ</div>
+      <div class="main-desc">
+        В нашем боте <b>ВУ|STORE</b> доступны услуги пробива ВУ — цена <span class="price-accent">4&nbsp;€</span> — дешевле не найдёте нигде.<br>
+        Есть услуга покупки ВУ с широким выбором по годам (2016—2025).<br>
+        Удобное и гибкое меню: вы фильтруете интересующие вас категории так, как вам нужно.<br>
+        Интерфейс прост — категории не сжаты, всё по уму и красиво.
+      </div>
+      ${centeredImgBlock("https://i.postimg.cc/L4VftRWf/1000041925.jpg","Меню выбора категорий","Меню выбора категорий — удобно и наглядно")}
+      <a href="https://t.me/Jonaring_bot" target="_blank" class="main-link">@Jonaring_bot</a>
+    </div>
+    <div class="block">
+      <div class="main-title" style="font-size:21px; margin-bottom:10px;">Что вы получаете в пробиве</div>
+      ${centeredImgBlock("https://i.postimg.cc/Pq69pBjk/1000041924.jpg","Главное меню Telegram-бота","1. Заходите в бота и вводите /start. Главное меню сервиса в Telegram")}
+      <div class="img-caption">2. Выбираете пункт «🔍 Пробив информации по ВУ». Введите номер ВУ (10 цифр)</div>
+      ${centeredImgBlock("https://i.postimg.cc/G3PNv8rQ/1000041926.jpg","Пример результата пробива","3. Оплачиваете <span style='color:#0bffbe;'>4&nbsp;€</span> — мгновенный результат")}
+    </div>
+    <div class="block">
+      <div class="main-title" style="font-size:21px; margin-bottom:10px;">Что вы получаете в покупке строк ВУ</div>
+      ${centeredImgBlock("https://i.postimg.cc/Pq69pBjk/1000041924.jpg","Главное меню Telegram-бота","1. Главное меню Telegram-бота")}
+      ${centeredImgBlock("https://i.postimg.cc/xd3kQ3M7/1000041927.jpg","Запрос даты рождения","2. Выбираете пункт «📝 Приобрести строку ВУ». Введите свою дату рождения")}
+      ${centeredImgBlock("https://i.postimg.cc/593ZzYSV/1000041929.jpg","Меню выбора категорий","3. Меню выбора категорий: например, при выборе «В» автоматически выберутся «В1 М»")}
+      ${centeredImgBlock("https://i.postimg.cc/yxQQbRL3/1000041928.jpg","Выбор даты","4. После нажатия «Поиск» бот покажет даты выдачи ВУ; выберите подходящую")}
+      ${centeredImgBlock("https://i.postimg.cc/SQvfHmy9/1000041930.jpg","Выдача строки ВУ","5. Оплата и выдача: бот после выбора выставлит криптосчёт и после оплаты выдаст строку ВУ прямо в чат")}
+    </div>
+  `;
+}
+function showAbout() {
+  setActiveMenu('link-about');
+  noticeElem.textContent = '';
+  document.body.classList.remove('no-horizontal-scroll');
+  contentElem.innerHTML = `
+    <div class="block">
+      <div class="main-title">Время работы сервиса</div>
+      <div class="timer-row" id="timerView"></div>
+    </div>
+  `;
+  let timerView = document.getElementById('timerView');
+  function renderTimer(years, days, hours, minutes, seconds) {
+    timerView.innerHTML = `
+      <div class="timer-block"><div class="timer-digits">${createDigits(years,2)}</div><div class="timer-label">Лет</div></div>
+      <div class="timer-block"><div class="timer-digits">${createDigits(days,3)}</div><div class="timer-label">Дней</div></div>
+      <div class="timer-block"><div class="timer-digits">${createDigits(hours,2)}</div><div class="timer-label">Часов</div></div>
+      <div class="timer-block"><div class="timer-digits">${createDigits(minutes,2)}</div><div class="timer-label">Минут</div></div>
+      <div class="timer-block"><div class="timer-digits">${createDigits(seconds,2)}</div><div class="timer-label">Секунд</div></div>
+    `;
+  }
+  function updateTimer() {
+    const now = new Date();
+    let years = now.getFullYear() - startDate.getFullYear();
+    const startThisYear = new Date(now.getFullYear(), startDate.getMonth(), startDate.getDate(),
+      startDate.getHours(), startDate.getMinutes(), startDate.getSeconds());
+    if (now < startThisYear) years--;
+    let lastAnniversary = new Date(startDate);
+    lastAnniversary.setFullYear(startDate.getFullYear() + years);
+    let diffAfterYears = now - lastAnniversary;
+    if (diffAfterYears < 0) diffAfterYears = 0;
+    const totalSeconds = Math.floor(diffAfterYears / 1000);
+    const days = Math.floor(totalSeconds / (24 * 3600));
+    const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    renderTimer(years, days, hours, minutes, seconds);
+  }
+  updateTimer();
+  timerInterval = setInterval(updateTimer, 1000);
+}
+function showSupport() {
+  setActiveMenu('link-support');
+  noticeElem.textContent = '';
+  document.body.classList.add('no-horizontal-scroll');
+  contentElem.innerHTML = `
+    <div class="block">
+      <div class="main-title">Поддержать проект</div>
+      <div style="font-size:15px;color:#b8fff9;text-align:center; margin-bottom:10px;">
+        Ваш донат помогает нам расти.<br>
+        Кликните на любой адрес, чтобы скопировать:
+      </div>
+      <div class="donate-cards">
+        <div class="donate-card">
+          <div class="donate-title">USDT TRC20</div>
+          <div class="donate-row" tabindex="0" onclick="copyDonate(this)">
+            <span class="donate-label">TRC20</span>
+            <span class="donate-address">TCNisjGVSSmBvqqerTnn7LAwTrgJcDxtsj</span>
+          </div>
+        </div>
+        <div class="donate-card">
+          <div class="donate-title">BTC</div>
+          <div class="donate-row" tabindex="0" onclick="copyDonate(this)">
+            <span class="donate-label">BTC</span>
+            <span class="donate-address">bc1q0xjfr9x6hysqn4e2fykk3w7ju4qzz28892n7k4</span>
+          </div>
+        </div>
+        <div class="donate-card">
+          <div class="donate-title">TON</div>
+          <div class="donate-row" tabindex="0" onclick="copyDonate(this)">
+            <span class="donate-label">TON</span>
+            <span class="donate-address">UQB3wolnpK7734cVQBoAPl22N2GbuA5vikxpLmZBfyCbOEu7</span>
+          </div>
+        </div>
+      </div>
+      <div class="copy-notice" id="donate-notice"></div>
+    </div>
+  `;
+}
+function copyDonate(row) {
+  const addr = row.querySelector('.donate-address').textContent;
+  navigator.clipboard.writeText(addr).then(() => {
+    row.classList.add('copied');
+    let notice = document.getElementById('donate-notice');
+    notice.textContent = `Адрес ${addr} скопирован в буфер обмена`;
+    setTimeout(() => {
+      row.classList.remove('copied');
+      notice.textContent = '';
+    }, 1300);
+  });
+}
+function showReserve() {
+  setActiveMenu('link-reserve');
+  noticeElem.textContent = '';
+  document.body.classList.remove('no-horizontal-scroll');
+  contentElem.innerHTML = `
+    <div class="block" style="align-items:center;">
+      <div class="main-title" style="text-align:center;">Резерв</div>
+      <div style="font-size:14px;margin-bottom:13px;text-align:center;color:#b0fffa; width: 100%;">
+        Здесь собраны резервные контакты и ссылки:
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:13px;width:100%;max-width:350px;margin:0 auto;">
+        <a href="https://t.me/Gibdd1_bot" target="_blank" class="main-link" style="font-size:12px;color:#004d49;background:linear-gradient(99deg,#30fff2 10%,#3af687 90%);border:1.1px solid #0bfed0; text-align:center;">Магазин BOT: ВУ|STORE</a>
+        <a href="https://t.me/+tCNo_aaG63IwOTQy" target="_blank" class="main-link" style="font-size:12px;color:#084f41;background:linear-gradient(94deg,#66fcf1 10%,#1f2833 90%);border:1.1px solid #45a29e; text-align:center;">Канал резерв в Telegram</a>
+      </div>
+      <div style="font-size:11.1px;color:#7bffe7;margin-top:11px;text-align:center; width: 100%;">Все ссылки актуальны и проверены</div>
+    </div>
+  `;
+}
+document.getElementById('link-home').onclick = function(e){e.preventDefault();showHome();};
+document.getElementById('link-about').onclick = function(e){e.preventDefault();showAbout();};
+document.getElementById('link-support').onclick = function(e){e.preventDefault();showSupport();};
+document.getElementById('link-reserve').onclick = function(e){e.preventDefault();showReserve();};
+showHome();
+</script>
+<div class="footer-vu">Все права защищены и принадлежат BУ|STORE</div>
+</body>
+</html>
